@@ -1,14 +1,4 @@
-var playerHealth = 40;
-var grantHealth = 10;
-var playerDamage = 0;
-var grantDamage = 0;
-var playerWins = 0;
-var grantWins = 0;
 var i = 0;
-var playerName;
-var attackOrQuit;
-
-//startGame();
 
 function startGame() {
   var playGame = prompt("Would you like to play a game with the Almighty Grant?")
@@ -19,39 +9,63 @@ function startGame() {
 }
 
 function startCombat() {
-  while (playerWins < 3 && playerHealth > 0) {
-    attackOrQuit = prompt('Do you want to attack or quit?');
-    if (attackOrQuit === "quit") {
+  var player = {
+    Name: playerName,
+    Health: 40,
+    HealsLeft: 2,
+    Wins: 0,
+    attackDamage: function() {
+      return Math.floor(Math.random() * 2) + 1;
+    },
+    healsRandom: function() {
+      return Math.floor(Math.random() * 9) + 1;
+    }
+  };
+
+  var opponent = {
+    Name: "Almighty Grant",
+    Health: 10,
+    Wins: 0,
+    attackDamage: function() {
+      return Math.floor(Math.random() * 4) + 1;
+    }
+  };
+  while (player.Wins < 5 && player.Health > 0) {
+    attackOrQuit = prompt('Do you want to attack, heal or quit?');
+    if (attackOrQuit === "heal" && player.HealsLeft > 0) {
+      player.Health += player.healsRandom();
+      player.HealsLeft--;
+      console.log(player.Name + " has " + player.HealsLeft + " more healing opportunity left.");
+      console.log(player.Name + " has healed and has " + player.Health + " health.");
+
+    } else if (attackOrQuit === "attack") {
+      player.Health -= player.attackDamage();
+      opponent.Health -= opponent.attackDamage();
+
+      console.log(player.Name + " has " + player.Health + " left.");
+      console.log("Almighty Grant has " + opponent.Health + " left.");
+    } else if (attackOrQuit === "quit") {
       break;
     }
-    function getDamage(x) {
-      return Math.floor(Math.random() * 3) + 2;
+
+    if (player.Health <= 0) {
+      opponent.Wins++;
+      console.log("Almighty Grant has " + opponent.Wins + " wins.");
     }
-    playerDamage = getDamage(playerDamage);
-    grantDamage = getDamage(grantDamage);
-    playerHealth -= playerDamage;
-    console.log(playerName + " has " + playerHealth + " left.");
-    grantHealth -= grantDamage;
-    console.log("Almighty Grant has " + grantHealth + " left.");
-    if (playerHealth <= 0) {
-      grantWins++;
-      //playerLoses++;
-      console.log("Almighty Grant has " + grantWins + " wins.");
-    }
-    if (grantHealth <= 0) {
-      playerWins++;
-      //grantLoses++;
-      grantHealth = 10;
-      console.log(playerName + " has " + playerWins + " wins.");
+    if (opponent.Health <= 0) {
+      player.Wins++;
+      opponent.Health = opponent.Health += 10;
+      console.log(opponent.Name + " has regenerated and how has " + opponent.Health + " health points.")
+      console.log(player.Name + " has " + player.Wins + " wins.");
     }
     i++;
   }
 
-  if (playerWins === 3) {
-    console.log(playerName + " has won the game. You have beaten the Almighty Grant. Go get yourself a cookie!");
-  } else if (playerHealth <= 0) {
-    console.log("Almighty Grant has won the game. You need to sharpen up your game " + playerName);
+  if (player.Wins === 5) {
+    console.log(player.Name + " has won the game. You have beaten the Almighty Grant. Go get yourself a cookie!");
+  } else if (player.Health <= 0) {
+    console.log("Almighty Grant has won the game. You need to sharpen up your game " + player.Name);
   } else if (attackOrQuit === "quit") {
-    console.log(playerName + " has quit the game. Come play again soon!");
-}
+    console.log(player.Name + " has quit the game. Come play again soon!");
+  }
 }
