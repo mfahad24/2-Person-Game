@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="stylesheet.css" rel="stylesheet" >
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="stylesheet.css" rel="stylesheet">
+  <title>Document</title>
 </head>
+
 <body>
-    <main>
-      <div class="disappear appear">
-        <button id="startButton">Start</button>
-      </div>
-      <div id ="attackdiv">
+  <main>
+    <div class="disappear appear">
+      <button id="startButton">Start</button>
+    </div>
+    <div id="attackandstats" class="bigdiv">
+      <div id="attackdiv" class="disappear1 appear">
         <button id="attackButton">Attack</button>
         <button id="healButton">Heal</button>
         <button id="quitButton">Quit</button>
       </div>
-      <div div="statsdiv">
+      <div div="statsdiv" class="disappear1 appear">
         <p id="message"></p>
         <!-- <p>Player Name:</p> -->
         <p class="playerstats">Player Stats</p>
@@ -32,7 +35,9 @@
         <p>Grant Health Bar:</p>
         <progress id="opponentHealth" value="10" max="10"></progress>
       </div>
-    </main>
-    <script src="script.js"></script>
+      <div>
+  </main>
+  <script src="script.js"></script>
 </body>
+
 </html>
