@@ -1,10 +1,38 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <script type="text/javascript" src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="stylesheet.css" rel="stylesheet" >
+    <title>Document</title>
 </head>
 <body>
-
+    <main>
+      <div class="disappear appear">
+        <button id="startButton">Start</button>
+      </div>
+      <div id ="attackdiv">
+        <button id="attackButton">Attack</button>
+        <button id="healButton">Heal</button>
+        <button id="quitButton">Quit</button>
+      </div>
+      <div div="statsdiv">
+        <p id="message"></p>
+        <!-- <p>Player Name:</p> -->
+        <p class="playerstats">Player Stats</p>
+        <p>Player Health Bar:</p>
+        <progress id="playerHealth" value="40" max="40"></progress>
+        <p>Player Heals Remaining:</p>
+        <progress id="healCount" value="2" max="2"></progress>
+        <p>Player Win Count: </p>
+        <progress id="winCount" value="0" max="5"></progress>
+        <p>Opponent Name: Almighty Grant</p>
+        <p>Enemy Stats</p>
+        <p>Grant Health Bar:</p>
+        <progress id="opponentHealth" value="10" max="10"></progress>
+      </div>
+    </main>
+    <script src="script.js"></script>
 </body>
-
 </html>

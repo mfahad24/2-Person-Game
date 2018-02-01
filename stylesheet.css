@@ -1,0 +1,40 @@
+body {
+  background-color: #95bcf9;
+}
+
+button {
+  color: white;
+  background-color: #09353a;
+  padding: 15px;
+}
+
+progress {
+  background-color: #09353a;
+}
+
+
+.appear, #statsdiv, #attackdiv {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+
+/* .attackdiv, .statsdiv {
+  display: none;
+} */
+
+.statsdiv {
+  border: 2px solid black;
+  padding: 20px;
+}
+
+p {font-weight: bold; }
+
+
+.disappear {
+  display: none;
+}
+
+.appear {
+  display: block;
+}
