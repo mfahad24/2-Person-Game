@@ -1,20 +1,21 @@
 (function() {
 
   startGame();
+  console.log("Hello");
 
   var i = 0;
 
   function startGame() {
-
+console.log("Hello");
     var playGame = prompt("Would you like to play a game with the Almighty Grant?")
-    if (playGame === "Yes") {
+    if (playGame === "Yes" || playGame === "yes" || playGame === "YES") {
       playerName = prompt('Name your character');
       startCombat();
     }
   }
 
   function startCombat() {
-
+console.log("Hello");
     var attackButton = document.getElementById("attackButton");
     var healButton = document.getElementById("healButton");
     var quitButton = document.getElementById("quitButton");
@@ -52,7 +53,7 @@
       startButton1.classList.add("disappear");
       displayDiv1.classList.remove("bigdiv");
       // displayDiv2.classList.remove("disappear1");
-      startGame();
+      // startGame();
     }
 
     attackButton.onclick = function() {
