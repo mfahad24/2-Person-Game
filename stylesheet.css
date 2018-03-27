@@ -17,6 +17,11 @@ progress {
   margin-bottom: 15px;
 }
 
+.restartbuttondiv {
+  text-align: center; 
+}
+
+
 /* .attackdiv, .statsdiv {
   display: none;
 } */

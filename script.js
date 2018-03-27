@@ -1,7 +1,7 @@
 (function() {
 
   startGame();
-  console.log("Hello");
+  // console.log("Hello");
 
   var i = 0;
 
@@ -26,6 +26,8 @@ console.log("Hello");
     var messageGame = document.getElementById("message");
     var startButton1 = document.getElementById("startButton");
     var displayDiv1 = document.getElementById("attackandstats");
+    var restart = document.getElementById("restartButton");
+    var hideonwin = document.getElementById("wordsandbars");
 
     var player = {
       Name: playerName,
@@ -34,9 +36,13 @@ console.log("Hello");
       Wins: 0,
       attackDamage: function() {
         return Math.floor(Math.random() * 2) + 1;
+        //Math.floor rounds a number downward to its nearest integer
+        //Math.random returns random number between 0 and 1
+        //* 2 + 1 can possibly return lowest number of 0 and highest number of 3
       },
       healsRandom: function() {
         return Math.floor(Math.random() * 9) + 1;
+//lowest is 0 and highest is 10
       }
     };
 
@@ -46,6 +52,7 @@ console.log("Hello");
       Wins: 0,
       attackDamage: function() {
         return Math.floor(Math.random() * 4) + 1;
+        //lowest is 0 and highest is 5
       }
     };
     startButton1.onclick = function() {
@@ -71,6 +78,8 @@ console.log("Hello");
         updateMessage(player.Name + " has " + player.Health + " left. Almighty Grant has " + opponent.Health + " left.");
       } else {
         updateMessage(player.Name + " has won the game. You have beaten the Almighty Grant. Go get yourself a cookie!")
+        hideonwin.style.display = "none";
+
       }
     };
 
@@ -85,6 +94,7 @@ console.log("Hello");
 
     quitButton.onclick = function() {
       updateMessage(player.Name + " has quit the game. Come play again soon!");
+      hideonwin.style.display = "none"; 
     }
 
     function updateDisplay() {
@@ -97,25 +107,9 @@ console.log("Hello");
     function updateMessage(newMessage) {
       messageGame.innerText = newMessage;
     }
+
+    restart.onclick = function () {
+      window.location.reload();
+    }
   }
-  //   if (player.Health <= 0) {
-  //     opponent.Wins++;
-  //     console.log("Almighty Grant has " + opponent.Wins + " wins.");
-  //   }
-  //   if (opponent.Health <= 0) {
-  //     player.Wins++;
-  //     opponent.Health = opponent.Health += 10;
-  //     console.log(opponent.Name + " has regenerated and now has " + opponent.Health + " health points.")
-  //     console.log(player.Name + " has " + player.Wins + " wins.");
-  //   }
-  // //   i++;
-  //   }
-  //
-  // if (player.Wins === 5) {
-  //   console.log(player.Name + " has won the game. You have beaten the Almighty Grant. Go get yourself a cookie!");
-  // } else if (player.Health <= 0) {
-  //   console.log("Almighty Grant has won the game. You need to sharpen up your game " + player.Name);
-  // } else if (attackOrQuit === "quit") {
-  //   console.log(player.Name + " has quit the game. Come play again soon!");
-  // }
 })(); // this is for self closing function
